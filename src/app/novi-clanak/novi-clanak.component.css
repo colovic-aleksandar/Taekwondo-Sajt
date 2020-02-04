@@ -1,0 +1,43 @@
+input[type="file"]
+{
+    visibility: hidden;
+}
+.forma
+{
+    width: 40%;
+    background-color: white;
+    border-radius: 0.4rem;
+    
+}
+span
+  {
+    font-family: 'Montserrat', sans-serif;
+    font-size: large;
+    color: rgb(109, 109, 109);
+    
+  }
+  label,p
+  {
+    font-family: 'Montserrat', sans-serif;
+    
+    color: rgb(109, 109, 109);
+  }
+  option
+  {
+    font-family: 'Roboto', sans-serif;
+    
+    color: rgb(85, 85, 85);
+  }
+
+  :host {
+    background-image: linear-gradient(to top , #4c91e6,rgb(83,185,207));
+    
+    
+    display:block;
+    height: 100%;
+  }
+
+  .blank
+  {
+      height: 1.5rem;
+  }

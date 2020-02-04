@@ -1,0 +1,32 @@
+.table
+{
+    font-family: 'Raleway', sans-serif;
+    color:rgb(119, 119, 119);
+    
+}
+thead
+{
+    color:rgb(92, 92, 92);
+}
+td
+{
+    font-weight: bold;
+}
+
+:host {
+    background-image: linear-gradient(to top , #4c91e6,rgb(83,185,207));
+    
+    size: 200px 200px;
+    display:block;
+    height: 100%;
+  }
+
+  .container
+  {
+      background-color: white;
+      border-radius: 0.4rem;
+  }
+  .blank
+  {
+      height: 1.5rem;
+  }

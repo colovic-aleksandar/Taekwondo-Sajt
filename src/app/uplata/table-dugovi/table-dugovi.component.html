@@ -1,0 +1,43 @@
+
+<div class="slika d-flex justify-content-center">  <img src="../../assets/img/logo1.png" alt=""></div>
+<div class="blank"></div>
+
+<div class="container animated slideInLeft">
+
+<table class="table">
+    <caption>Lista članova koji nisu platili članarinu</caption>
+    <thead>
+      <tr>
+        <th scope="col">Ime Člana</th>
+        <th scope="col">Januar</th>
+        <th scope="col">Februar</th>
+        <th scope="col">Mart</th>
+        <th scope="col">April</th>
+        <th scope="col">Maj</th>
+        <th scope="col">Jun</th>
+        <th scope="col">Septembar</th>
+        <th scope="col">Oktobar</th>
+        <th scope="col">Novembar</th>
+        <th scope="col">Decembar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let placanja of placanje">
+        <td>{{placanja.imeClana}}</td>
+        <td>{{placanja.januar}}</td>
+        <td>{{placanja.februar}}</td>
+        <td>{{placanja.mart}}</td>
+        <td>{{placanja.april}}</td>
+        <td>{{placanja.maj}}</td>
+        <td>{{placanja.jun}}</td>
+        <td>{{placanja.septembar}}</td>
+        <td>{{placanja.oktobar}}</td>
+        <td>{{placanja.novembar}}</td>
+        <td>{{placanja.decembar}}</td>
+      </tr>
+      
+    </tbody>
+  </table>
+
+<button class="btn btn-primary mb-3 " routerLink="/uplati" >Uplati Članarinu</button>
+ </div>

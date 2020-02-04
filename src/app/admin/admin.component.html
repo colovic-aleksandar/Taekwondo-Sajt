@@ -1,0 +1,30 @@
+<div class="slika d-flex justify-content-center mb-3">  <img src="../../assets/img/logo1.png" alt=""></div>
+
+
+<div class="container ">
+  
+  <div class="d-flex justify-content-center ">
+    <div class="jumbotron animated fadeInUp ">
+      
+        <h1 class="display-4 sivo" >Dobrodošao Admine!</h1>
+        <p class="lead font-weight-lighter text-muted">Za menjanje tabela, dodavanje korisnika i dodavanje postova kliknite na plavo dugme!</p>
+        <hr class="my-4">
+        <p class="font-weight-light text-muted">Takođe se možete izlogovati na isto dugme</p>
+        <div class="btn-group">
+            <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Klikni
+            </button>
+            <div class="dropdown-menu">
+              <a  routerLink="/tabelaizmena" class="dropdown-item" >Izmeni tabelu</a>
+              <a routerLink="/novikorisnik"class="dropdown-item" href="#">Dodaj novog korisnika</a>
+              <a routerLink="/noviclanak" class="dropdown-item" href="#">Dodaj novi članak</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" (click)="logOut()">Log Out</a>
+            </div>
+          </div>
+      </div>
+    </div>
+
+</div>
+
+

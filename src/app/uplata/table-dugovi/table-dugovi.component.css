@@ -1,0 +1,26 @@
+.table
+{
+    font-family: 'Raleway', sans-serif;
+    color:rgb(119, 119, 119);
+    
+}
+thead
+{
+    color:rgb(92, 92, 92);
+}
+td
+{
+    font-weight: bold;
+}
+
+
+
+  .container
+  {
+      background-color: white;
+      border-radius: 0.4rem;
+  }
+  .blank
+  {
+      height: 1.5rem;
+  }

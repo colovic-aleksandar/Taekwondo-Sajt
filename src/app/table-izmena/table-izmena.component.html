@@ -1,0 +1,61 @@
+
+<div class="slika d-flex justify-content-center">  <img src="../../assets/img/logo1.png" alt=""></div>
+<div class="blank"></div>
+
+<div class="container animated slideInLeft">
+  <div class="row">
+    <div class="col-12">
+<table class="table ">
+    <caption>Lista članova koji nisu platili članarinu</caption>
+    <thead >
+      <tr>
+        <th scope="col">Ime Člana</th>
+        <th scope="col">Januar</th>
+        <th scope="col">Februar</th>
+        <th scope="col">Mart</th>
+        <th scope="col">April</th>
+        <th scope="col">Maj</th>
+        <th scope="col">Jun</th>
+        <th scope="col">Septembar</th>
+        <th scope="col">Oktobar</th>
+        <th scope="col">Novembar</th>
+        <th scope="col">Decembar</th>
+        <th scope="col">Akcije</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let placanja of placanje">
+        <td >{{placanja.imeClana}}</td>
+        <td>{{placanja.januar}}</td>
+        <td>{{placanja.februar}}</td>
+        <td>{{placanja.mart}}</td>
+        <td>{{placanja.april}}</td>
+        <td>{{placanja.maj}}</td>
+        <td>{{placanja.jun}}</td>
+        <td>{{placanja.septembar}}</td>
+        <td>{{placanja.oktobar}}</td>
+        <td>{{placanja.novembar}}</td>
+        <td>{{placanja.decembar}}</td>
+        <td>
+          <button class="btn btn-light"  (click) = "updateuj(placanja)" name="Izmeni" id="">
+         <i  class="far fa-edit"></i>
+         </button>
+         <button class="btn btn-light"  (click) = "deleteuj(placanja)" name="Obrisi" id=""><i class="fas fa-user-times p-0"></i></button>
+        </td>
+        
+      </tr>
+      
+    </tbody>
+  </table>
+
+<div class="d-flex justify-content-end">
+  <!-- Button trigger modal -->
+<button  name="Dodaj"(click) = "updateuj(placanja)" type="button" class="btn btn-info mb-4 ">
+  Dodaj Člana
+</button>
+</div>
+<a class="d-flex justify-content-start text-info form-group "routerLink="/admin" > &nbsp;&nbsp;&nbsp;
+  <i class="fas fa-chevron-left mt-1 mr-2"></i><p class="left"><small>Vrati se nazad</small></p></a>
+</div>
+</div> 
+</div>

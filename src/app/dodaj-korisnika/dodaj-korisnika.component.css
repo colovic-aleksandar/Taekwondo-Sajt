@@ -1,0 +1,18 @@
+.forma
+{
+    width: 50%;
+    
+}
+span
+  {
+    font-family: 'Montserrat', sans-serif;
+    font-size: large;
+    color: rgb(109, 109, 109);
+    
+  }
+  label
+  {
+    font-family: 'Montserrat', sans-serif;
+    
+    color: rgb(109, 109, 109);
+  }

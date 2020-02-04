@@ -1,0 +1,17 @@
+{
+    "Clan":
+    {
+        "dbconfig":
+        {
+                "dbAdress":"mongodb+srv://colovic:AX4n9Lf0MN1Ou8xm@cluster0-rxoxm.mongodb.net/clanovi?retryWrites=true&w=majority"
+                
+        }
+    },
+    "development":
+    {
+        "JWT_SECRET":"SECRET#123"
+
+    }
+   
+}
+

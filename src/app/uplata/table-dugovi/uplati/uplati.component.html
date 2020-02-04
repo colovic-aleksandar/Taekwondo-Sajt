@@ -1,0 +1,68 @@
+<div class="slika d-flex justify-content-center">  <img src="../../assets/img/logo1.png" class="mb-3" alt=""></div>
+
+<div class="container d-flex justify-content-center ">
+        <div class="forma p-2 animated fadeInUp">
+        <form #formaUplati ="ngForm" method="POST" action="posalji">
+          <div #paypal id="paypal-button-container"></div>
+          
+    <div class="form-group">
+     
+        <label for="ImeClana">Ime Člana</label>
+        
+        <input type="text" #ime="ngModel" [ngModel]="mailService.poslatMail && placanjaService.poslatMail.ime"   name ="ime" class="form-control" placeholder="Ime i Prezime" required>
+    </div> 
+    
+        <!-- <div class="form-group">
+            
+            <button type="button" class="btn btn-outline-primary" (click)="filePicker.click()">
+                Izaberi Uplatnicu
+            </button>
+        </div> 
+         -->
+
+            <div class="form-group">
+    <label for="exampleFormControlSelect2">Članarina Za Mesec:&nbsp;<small class="text-info">(držite ctrl za više opcija)</small></label>
+    <select multiple class="form-control" name="mesec" ngModel  #mesec="ngModel" [ngModel]="mailService.poslatMail && placanjaService.poslatMail.mesec" id="exampleFormControlSelect2">
+      <option>Januar</option>
+      <option>Februar</option>
+      <option>Mart</option>
+      <option>April</option>
+      <option>Maj</option>
+      <option>Jun</option>
+      <option>Septembar</option>
+      <option>Oktobar</option>
+      <option>Novembar</option>
+      <option>Decembar</option>
+      <input  #uplatnica="ngModel"  ngModel name="uplatnica" type="file" #filePicker>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Placanje Paypalom &nbsp;&nbsp;<small class="text-info">(Opcionalno)</small></label>
+    <input class="form-control broj" type="number" [(ngModel)]="konacnaSuma"><br>
+  <div  id="paypal-checkout-btn"></div>
+  </div> 
+  
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Napomena &nbsp;&nbsp;<small class="text-info">(Opcionalno)</small></label>
+    <textarea #napomena="ngModel" [ngModel]="mailService.poslatMail && placanjaService.poslatMail.napomena" class="form-control m-0" id="exampleFormControlTextarea1" rows="3" placeholder="Ako imate dodatnu napomenu možete ovde upisati"></textarea>
+  </div>         
+        <div class="d-flex justify-content-end">
+          <button (click)="send()" class="btn btn-primary " >
+            Pošalji
+          </button>
+  </div>
+
+<!-- paypal -->
+
+
+    </form>
+    <a class="d-flex justify-content-start text-primary form-group "routerLink="/uplata" > &nbsp;&nbsp;&nbsp;
+        <i class="fas fa-chevron-left mt-1 mr-2"></i><small class="mt-1 ">Vrati se nazad</small></a>
+</div>
+    </div>
+    
+<!-- 
+    <script src="https://www.paypal.com/sdk/js?client-id=sAUPMw1v4M56okvza-CL9oHd-NSnxPnQgdm8n65LoDVoCh7fMvYTmDQcIQ_IDJURXKDO0FPA_clCEX9Ee"></script>
+    <script>paypal.Buttons().render('body');</script> -->
+
+ 

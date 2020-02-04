@@ -1,0 +1,73 @@
+
+<div class="container" >
+    <div class="slika d-flex justify-content-center">  <img src="../../assets/img/logo1.png" alt=""></div>
+    <div class="row">
+      
+      <div class="col  d-flex justify-content-center">
+
+        <!-- forma pocinje -->
+        <div class="forma m-3 container box p-5 animated fadeInUp" >
+          <form #logInForm="ngForm" (ngSubmit)="logInForm.valid && onSubmit(logInForm)">
+            
+            <div class="form-group">
+              <div class="col d-flex justify-content-center">
+                <span class="blockquote text-center font-weight-bold m-0 ">Log in Korisnika</span><br></div>
+                <p class="col text-center font-weight-lighter d-flex justify-content-center mutiran">
+                  Ovde se možete ulogovati kako bi platili članarinu
+                </p>
+                <input type="text" #usernameInput="ngModel" name="username" class="form-control"  
+                [(ngModel)]="model.username" placeholder="Username" required>
+              <label *ngIf="usernameInput.invaild" >Unesite validan username</label>
+            </div>
+            <div class="form-group">
+
+              <input type="password" name="password" [(ngModel)]="model.password"  #passwordInput = "ngModel" class="form-control mt-4"  placeholder="Password" minlength="6"  required>
+
+              <div *ngIf="logInForm.submitted && passwordInput.errors?.minlength">
+                <label for="" class="validation-message text-danger">Minimum 6 karaktera </label>
+                <!-- <label *ngIf ="passwordInput.invalid">Unesite validan password</label> -->
+            </div>
+                
+              </div>
+              <br>
+              <div class=" d-flex justify-content-start form-group ">
+                
+                <button  type="submit"  class="btn btn-info  ">Log in</button>
+              </div>
+              <div class></div>
+              <a class="d-flex justify-content-end text-info form-group " routerLink="/" > &nbsp;&nbsp;&nbsp;
+                <i class="fas fa-chevron-left mt-1 mr-2"></i><p class="left"><small>Vrati se nazad</small></p></a>
+           </form>
+           <div class=" text-danger" *ngIf="logInForm.submitted">
+            <span>{{serverErrorMessages}}</span>
+            
+            </div>      
+        </div>
+  <!-- //zavrsava se forma -->
+           
+       </div>
+    
+     </div>
+     
+  </div>
+
+  <script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function() {
+      'use strict';
+      window.addEventListener('load', function() {
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.getElementsByClassName('needs-validation');
+        // Loop over them and prevent submission
+        var validation = Array.prototype.filter.call(forms, function(form) {
+          form.addEventListener('submit', function(event) {
+            if (form.checkValidity() === false) {
+              event.preventDefault();
+              event.stopPropagation();
+            }
+            form.classList.add('was-validated');
+          }, false);
+        });
+      }, false);
+    })();
+    </script>

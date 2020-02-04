@@ -1,0 +1,96 @@
+
+<div class="container d-flex justify-content-center ">
+
+
+
+  <form class="forma needs-validation" (ngSubmit)="DodajiliIzmeni()">
+    <span class="lead d-flex justify-content-center m-3 "> Dodaj/Izmeni Člana</span>
+    <div class="row ">
+      
+    <div class="col mt-2" >
+      
+      <div class="form-group">
+        <label for="imePrezime">Ime i Prezime</label>
+        <input type="text" name="username"  id="validationTextarea" class="form-control is-invalid" #imeClana="ngModel" [ngModel]="placanja?.imeClana" (ngModelChange)="placanja.imeClana= $event" placeholder="Ime Clana" required>
+      </div>
+      <div class="invalid-feedback">
+       Ime je obavezno
+      </div>
+      <div class="form-group">
+          <label for="januar">Januar</label>
+          <input  [ngModel]="placanja?.januar" (ngModelChange)="placanja.januar= $event"class="form-control" name="januar" id="januar" >
+        </div>
+      
+        <div class="form-group">
+          <label for="februar">Februar</label>
+          <input  [ngModel]="placanja?.februar" (ngModelChange)="placanja.februar= $event"class="form-control" name="februar" id="februar" >
+        </div>
+        <div class="form-group">
+          <label for="mart">Mart</label>
+          <input  [ngModel]="placanja?.mart" (ngModelChange)="placanja.mart = $event"class="form-control" name="mart"id="mart" >
+        </div>
+        <div class="form-group">
+          <label for="april">April</label>
+          <input [ngModel]="placanja?.april" (ngModelChange)="placanja.april = $event"class="form-control" name="april" id="april" >
+        </div>
+      
+        <div class="form-group">
+          <label for="maj">Maj</label>
+          <input  [ngModel]="placanja?.maj" (ngModelChange)="placanja.maj = $event"class="form-control" name="maj" id="maj" >
+        </div>
+      </div>
+      <div class="col ml-3 mt-2" >
+        <div class="form-group">
+          <label for="jun">Jun</label>
+          <input  [ngModel]="placanja?.jun" (ngModelChange)="placanja.jun = $event"class="form-control" name="jun" id="jun" >
+        </div>
+      
+    
+        <div class="form-group">
+          <label for="septembar">Septembar</label>
+          <input  [ngModel]="placanja?.septembar" (ngModelChange)="placanja.septembar = $event"class="form-control" name="septembar" id="septembar" >
+        </div>
+  
+        <div class="form-group">
+          <label for="oktobar">Oktobar</label>
+          <input  [ngModel]="placanja?.oktobar" (ngModelChange)="placanja.oktobar = $event"class="form-control" name="oktobar" id="oktobar" >
+        </div>
+  
+        <div class="form-group">
+          <label for="novembar">Novembar</label>
+          <input  [ngModel]="placanja?.novembar" (ngModelChange)="placanja.novembar = $event"class="form-control" name="novembar" id="novembar" >
+        </div>
+  
+        <div class="form-group">
+          <label for="decembar">Decembar</label>
+          <input  [ngModel]="placanja?.decembar" (ngModelChange)="placanja.decembar = $event"class="form-control" name="decembar" id="decembar" >
+        </div>
+      
+        <br>
+        <button type="submit" class="btn btn-info mt-2">Save changes</button>
+      </div>
+      </div> 
+    </form>
+  
+   
+  </div>
+  <script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function() {
+      'use strict';
+      window.addEventListener('load', function() {
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.getElementsByClassName('needs-validation');
+        // Loop over them and prevent submission
+        var validation = Array.prototype.filter.call(forms, function(form) {
+          form.addEventListener('submit', function(event) {
+            if (form.checkValidity() === false) {
+              event.preventDefault();
+              event.stopPropagation();
+            }
+            form.classList.add('was-validated');
+          }, false);
+        });
+      }, false);
+    })();
+    </script>

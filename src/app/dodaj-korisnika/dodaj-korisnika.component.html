@@ -1,0 +1,97 @@
+
+<div class="container d-flex justify-content-center ">
+
+
+
+    <form #dodajKorisnikaForm ="ngForm"class="forma needs-validation" (ngSubmit)="onSubmit(dodajKorisnikaForm)">
+      <span class="lead d-flex justify-content-center m-3 "> DodajČlana</span>
+      <div class="row ">
+      <div class="col mt-2" >
+        <div class="form-group">
+          <input type="hidden" name="_id" #_id="ngModel" [ngModel]="placanjaService.neplatioci && placanjaService.neplatioci._id">
+        </div>
+        <div class="form-group">
+          <label for="imePrezime">Ime i Prezime</label>
+          <input type="text" name="imeClana"  class="form-control is-invalid" #imeClana="ngModel" [ngModel]="placanjaService.neplatioci && placanjaService.neplatioci.imeClana" placeholder="Ime Clana" required>
+        </div>
+        <div class="invalid-feedback">
+         Ime je obavezno
+        </div>
+        <div class="form-group">
+            <label for="januar">Januar</label>
+            <input  type="text" [ngModel]="placanjaService.neplatioci && placanjaService.neplatioci.januar" class="form-control" name="januar"  >
+          </div>
+        
+          <div class="form-group">
+            <label for="februar">Februar</label>
+            <input  type="text" [ngModel]="placanjaService.neplatioci && placanjaService.neplatioci.februar" class="form-control" name="februar"  >
+          </div>
+          <div class="form-group">
+            <label for="mart">Mart</label>
+            <input   [ngModel]="placanjaService.neplatioci && placanjaService.neplatioci.mart" class="form-control" name="mart" >
+          </div>
+          <div class="form-group">
+            <label for="april">April</label>
+            <input type="text" [ngModel]="placanjaService.neplatioci && placanjaService.neplatioci.april" class="form-control" name="april"  >
+          </div>
+        
+          <div class="form-group">
+            <label for="maj">Maj</label>
+            <input  type="text" [ngModel]="placanjaService.neplatioci && placanjaService.neplatioci.maj" class="form-control" name="maj"  >
+          </div>
+        </div>
+        <div class="col ml-3 mt-2" >
+          <div class="form-group">
+            <label for="jun">Jun</label>
+            <input  type="text" [ngModel]="placanjaService.neplatioci && placanjaService.neplatioci.jun" class="form-control" name="jun" >
+          </div>
+        
+      
+          <div class="form-group">
+            <label for="septembar">Septembar</label>
+            <input  type="text" [ngModel]="placanjaService.neplatioci && placanjaService.neplatioci.septembar" class="form-control" name="septembar">
+          </div>
+    
+          <div class="form-group">
+            <label for="oktobar">Oktobar</label>
+            <input  type="text" [ngModel]="placanjaService.neplatioci && placanjaService.neplatioci.oktobar" class="form-control" name="oktobar" >
+          </div>
+    
+          <div class="form-group">
+            <label for="novembar">Novembar</label>
+            <input  type="text" [ngModel]="placanjaService.neplatioci && placanjaService.neplatioci.novembar" class="form-control" name="novembar">
+          </div>
+    
+          <div class="form-group">
+            <label for="decembar">Decembar</label>
+            <input  type="text" [ngModel]="placanjaService.neplatioci && placanjaService.neplatioci.decembar" class="form-control" name="decembar">
+          </div>
+        
+          <br>
+          <button type="submit" class="btn btn-info mt-2">Save changes</button>
+        </div>
+        </div> 
+      </form>
+    
+     
+    </div>
+    <script>
+      // Example starter JavaScript for disabling form submissions if there are invalid fields
+      (function() {
+        'use strict';
+        window.addEventListener('load', function() {
+          // Fetch all the forms we want to apply custom Bootstrap validation styles to
+          var forms = document.getElementsByClassName('needs-validation');
+          // Loop over them and prevent submission
+          var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+              if (form.checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+              form.classList.add('was-validated');
+            }, false);
+          });
+        }, false);
+      })();
+      </script>

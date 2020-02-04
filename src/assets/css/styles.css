@@ -1,0 +1,66 @@
+a
+{
+    text-decoration: none!important;
+}
+.carousel-item{
+    height: 20%;
+    
+} 
+.headline
+{
+height: 6rem;
+background-image: url("../img/headline.jpg");
+}
+
+span{
+    font-family: 'Raleway', sans-serif;
+    font-size:1.5rem;
+}
+
+.row
+{
+    margin-left:0 !important ;
+    margin-right:0!important;
+}
+
+p
+{
+    font-family: 'Titillium Web', sans-serif;
+
+}
+
+.footer
+{
+    font-size:1rem;
+    font-family: 'Titillium Web', sans-serif;
+}
+
+.ftc
+{
+    padding: 1.125rem;
+   
+    
+}
+
+
+
+@media  (min-width: 1200px) 
+{
+    .ftc
+{
+   
+    max-width: 20.33%;
+    
+}
+  }
+
+  .header,.footer
+  {
+      background-color: #103269
+  }
+
+.copy
+  {
+    font-size: 1rem;
+    background-color: #091d3d
+  }

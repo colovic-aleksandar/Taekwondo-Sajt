@@ -1,0 +1,34 @@
+
+.box
+  {
+    background-color: white !important;
+  }
+.forma
+{
+    width:40%;
+    
+}
+:host {
+    background-image: linear-gradient(to top , #4c91e6,rgb(83,185,207));
+    
+    size: 200px 200px;
+    display:block;
+    height: 100%;
+  }
+
+  span
+  {
+    font-family: 'Montserrat', sans-serif;
+    font-size: large;
+    color: rgb(109, 109, 109);
+    
+  }
+  .mutiran
+  {
+      color:rgb(160, 160, 160);
+  }
+
+  .left
+  {
+    float:left;
+  }

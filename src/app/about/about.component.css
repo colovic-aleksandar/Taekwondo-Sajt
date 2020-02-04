@@ -1,0 +1,15 @@
+.headerImage
+{
+    background-image: url('../../assets/img/header.jpg');
+    height: 10rem;
+}
+hr{
+    width: 100%;
+    
+}
+p,span
+{
+    
+    
+    text-align:justify;
+}
