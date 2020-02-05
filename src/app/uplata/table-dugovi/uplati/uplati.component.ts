@@ -20,6 +20,8 @@ export class UplatiComponent implements AfterViewChecked
   addScript:boolean=false;
   paypalLoad: boolean=true;
   konacnaSuma:number=1;
+
+  //paypal (nije deo forme)
   paypalConfig={
     env:'sandbox',
     client:{
@@ -65,6 +67,8 @@ addPaypalScript()
     document.body.appendChild(scripttagElement);
   })
 }
+//kraj paypala
+
 
 send(form:NgForm)
 {
@@ -86,7 +90,4 @@ send(form:NgForm)
     }
   );
 }
-
-
-
 }
