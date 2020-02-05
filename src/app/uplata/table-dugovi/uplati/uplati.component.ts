@@ -13,7 +13,10 @@ declare let paypal:any;
 })
 export class UplatiComponent implements AfterViewChecked
 {
- 
+  constructor(public http: MailService) {}
+  ime:string;
+  mesec:string;
+  napomena:string;
   addScript:boolean=false;
   paypalLoad: boolean=true;
   konacnaSuma:number=1;
@@ -62,14 +65,13 @@ addPaypalScript()
     document.body.appendChild(scripttagElement);
   })
 }
-constructor(public http: MailService) {}
+
 send(form:NgForm)
 {
   let mail={
-    name:form.value,
-    mesec:form.value,
-    napomena:form.value
-    
+    name:this.ime,
+    mesec:this.mesec,
+    napomena:this.napomena
 
   }
   

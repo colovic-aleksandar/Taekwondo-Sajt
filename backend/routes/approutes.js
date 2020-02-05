@@ -108,7 +108,7 @@ router.put('/update',(req,res,next) => {
 });
 
 router.delete('/delete',(req,res,next) =>{
-    Placanja.remove( req.params._id,(err,placanja)=>{
+    Placanja.findOneAndDelete( req.params._id,(err,placanja)=>{
         if(err)
             res.status(500).json({errmsg : err,msg:"error"});
            

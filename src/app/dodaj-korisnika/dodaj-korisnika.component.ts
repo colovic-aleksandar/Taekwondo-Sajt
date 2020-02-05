@@ -19,7 +19,6 @@ export class DodajKorisnikaComponent implements OnInit {
   onSubmit(form:NgForm)
   {
    
-    
       this.placanjaService.createPlacanja(form.value).subscribe((res)=>{
         this.router.navigate(['/tabelaizmena']);
         
@@ -30,7 +29,7 @@ export class DodajKorisnikaComponent implements OnInit {
   //   this.placanjaService.updatePlacanja(form.value).subscribe((res)=>{
   //     this.router.navigate(['/tabelaizmena']);
       
-  //   });
+  //    });
   //  }
   }
 

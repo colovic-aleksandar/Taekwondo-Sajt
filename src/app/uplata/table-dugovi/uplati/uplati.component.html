@@ -9,20 +9,20 @@
      
         <label for="ImeClana">Ime Člana</label>
         
-        <input type="text" #ime="ngModel" [ngModel]="mailService.poslatMail && placanjaService.poslatMail.ime"   name ="ime" class="form-control" placeholder="Ime i Prezime" required>
+        <input type="text" name="ime"  id="validationTextarea" class="form-control is-invalid" #ime="ngModel" [(ngModel)]="http.poslatMail.ime" placeholder="Ime i Prezime" required>
     </div> 
     
-        <!-- <div class="form-group">
+        <div class="form-group">
             
             <button type="button" class="btn btn-outline-primary" (click)="filePicker.click()">
                 Izaberi Uplatnicu
             </button>
         </div> 
-         -->
+        
 
             <div class="form-group">
     <label for="exampleFormControlSelect2">Članarina Za Mesec:&nbsp;<small class="text-info">(držite ctrl za više opcija)</small></label>
-    <select multiple class="form-control" name="mesec" ngModel  #mesec="ngModel" [ngModel]="mailService.poslatMail && placanjaService.poslatMail.mesec" id="exampleFormControlSelect2">
+    <select multiple class="form-control" name="mesec" ngModel  #mesec="ngModel" [(ngModel)]="http.poslatMail.mesec">
       <option>Januar</option>
       <option>Februar</option>
       <option>Mart</option>
@@ -38,13 +38,13 @@
   </div>
   <div class="form-group">
     <label for="exampleFormControlTextarea1">Placanje Paypalom &nbsp;&nbsp;<small class="text-info">(Opcionalno)</small></label>
-    <input class="form-control broj" type="number" [(ngModel)]="konacnaSuma"><br>
+    <input class="form-control broj" type="number" name="konacnaSuma" [(ngModel)]="konacnaSuma"><br>
   <div  id="paypal-checkout-btn"></div>
   </div> 
   
   <div class="form-group">
     <label for="exampleFormControlTextarea1">Napomena &nbsp;&nbsp;<small class="text-info">(Opcionalno)</small></label>
-    <textarea #napomena="ngModel" [ngModel]="mailService.poslatMail && placanjaService.poslatMail.napomena" class="form-control m-0" id="exampleFormControlTextarea1" rows="3" placeholder="Ako imate dodatnu napomenu možete ovde upisati"></textarea>
+    <textarea #napomena="ngModel" [(ngModel)]="http.poslatMail.napomena" name="napomena" class="form-control m-0" id="exampleFormControlTextarea1" rows="3" placeholder="Ako imate dodatnu napomenu možete ovde upisati"></textarea>
   </div>         
         <div class="d-flex justify-content-end">
           <button (click)="send()" class="btn btn-primary " >

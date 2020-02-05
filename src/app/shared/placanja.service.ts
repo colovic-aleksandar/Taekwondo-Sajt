@@ -14,7 +14,7 @@ export class PlacanjaService {
   neplatioci:Placanja[];
 private baseUri:string="http://localhost:3000";
 private headers=new HttpHeaders().set('Content-Type','application/json');
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient,) { }
 
   createUser: Placanja = 
   {
@@ -33,7 +33,7 @@ private headers=new HttpHeaders().set('Content-Type','application/json');
   }
 
 createPlacanja(placanja:Placanja){
-  return this.http.post(this.baseUri+'/create',placanja,{headers:this.headers});
+  return this.http.post(this.baseUri+'/create',placanja);
 }
 
 readPlacanja(){

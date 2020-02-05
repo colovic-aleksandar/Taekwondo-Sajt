@@ -37,7 +37,7 @@
         <td>{{placanja.novembar}}</td>
         <td>{{placanja.decembar}}</td>
         <td>
-          <button class="btn btn-light"  (click) = "updateuj(placanja)" name="Izmeni" id="">
+          <button class="btn btn-light"  (click) = "updateuj(placanja)" name="Izmeni" id="" [disabled]="isEnabledd">
          <i  class="far fa-edit"></i>
          </button>
          <button class="btn btn-light"  (click) = "deleteuj(placanja)" name="Obrisi" id=""><i class="fas fa-user-times p-0"></i></button>
@@ -50,7 +50,7 @@
 
 <div class="d-flex justify-content-end">
   <!-- Button trigger modal -->
-<button  name="Dodaj"(click) = "updateuj(placanja)" type="button" class="btn btn-info mb-4 ">
+<button  name="Dodaj"(click) = "adduj(placanja)" type="button" class="btn btn-info mb-4 " [disabled]="isDisabledd">
   Dodaj Člana
 </button>
 </div>
@@ -58,4 +58,78 @@
   <i class="fas fa-chevron-left mt-1 mr-2"></i><p class="left"><small>Vrati se nazad</small></p></a>
 </div>
 </div> 
+<div class="d-flex justify-content-center">
+<div class="row" [hidden]="isShow"> 
+  <form #dodajKorisnikaForm ="ngForm"class="forma needs-validation" >
+  <div [hidden]="isDisabled"><span class="lead d-flex justify-content-center m-3 " > Dodaj Člana</span></div>
+  <div [hidden]="isEnabled"><span class="lead d-flex justify-content-center m-3 " > Izmeni Člana</span></div>
+  <div class="row ">
+  <div class="col " >
+    <div class="form-group">
+      <input type="hidden" name="_id" #_id="ngModel" [ngModel]="placanjaService.placanja && placanjaService.placanja._id">
+    </div>
+    <div class="form-group">
+      <label for="imePrezime">Ime i Prezime</label>
+      <input type="text" name="imeClana"  class="form-control is-invalid" #imeClana="ngModel" [ngModel]="placanjaService.placanja && placanjaService.placanja.imeClana" placeholder="Ime Clana" required>
+    </div>
+    <div class="invalid-feedback">
+     Ime je obavezno
+    </div>
+    <div class="form-group">
+        <label for="januar">Januar</label>
+        <input  type="text" [ngModel]="placanjaService.placanja && placanjaService.placanja.januar" class="form-control" name="januar"  >
+      </div>
+    
+      <div class="form-group">
+        <label for="februar">Februar</label>
+        <input  type="text" [ngModel]="placanjaService.placanja && placanjaService.placanja.februar" class="form-control" name="februar"  >
+      </div>
+      <div class="form-group">
+        <label for="mart">Mart</label>
+        <input   [ngModel]="placanjaService.placanja && placanjaService.placanja.mart" class="form-control" name="mart" >
+      </div>
+      <div class="form-group">
+        <label for="april">April</label>
+        <input type="text" [ngModel]="placanjaService.placanja && placanjaService.placanja.april" class="form-control" name="april"  >
+      </div>
+    
+      <div class="form-group">
+        <label for="maj">Maj</label>
+        <input  type="text" [ngModel]="placanjaService.placanja && placanjaService.placanja.maj" class="form-control" name="maj"  >
+      </div>
+    </div>
+    <div class="col m-3" >
+      <div class="form-group">
+        <label for="jun">Jun</label>
+        <input  type="text" [ngModel]="placanjaService.placanja && placanjaService.placanja.jun" class="form-control" name="jun" >
+      </div>
+    
+  
+      <div class="form-group">
+        <label for="septembar">Septembar</label>
+        <input  type="text" [ngModel]="placanjaService.placanja && placanjaService.placanja.septembar" class="form-control" name="septembar">
+      </div>
+
+      <div class="form-group">
+        <label for="oktobar">Oktobar</label>
+        <input  type="text" [ngModel]="placanjaService.placanja && placanjaService.placanja.oktobar" class="form-control" name="oktobar" >
+      </div>
+
+      <div class="form-group">
+        <label for="novembar">Novembar</label>
+        <input  type="text" [ngModel]="placanjaService.placanja && placanjaService.placanja.novembar" class="form-control" name="novembar">
+      </div>
+
+      <div class="form-group">
+        <label for="decembar">Decembar</label>
+        <input  type="text" [ngModel]="placanjaService.placanja && placanjaService.placanja.decembar" class="form-control" name="decembar">
+      </div> 
+    
+      <br>
+      <button  (click)="onSubmit(dodajKorisnikaForm)" class="btn btn-info m-2" [hidden]="isDisabled" >Dodaj</button>
+      <button  (click)="onSubmit1(dodajKorisnikaForm)" class="btn btn-info m-2" [hidden]="isEnabled">Izmeni</button>
+    </div>
+    </div> 
+  </form>
+</div> </div>
 </div>

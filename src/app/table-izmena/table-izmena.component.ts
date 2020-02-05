@@ -14,34 +14,102 @@ import {NgForm} from '@angular/forms';
 
 export class TableIzmenaComponent implements OnInit {
   private placanje:Placanja[];
-
-  constructor(private _placanjaService:PlacanjaService, private router:Router) { }
+  isShow = true;
+  isDisabled=true;
+  isEnabled=true;
+  isDisabledd=false;
+  isEnabledd=false;
+  constructor(private placanjaService:PlacanjaService, private router:Router) { }
 
   ngOnInit() {
     this.readPlacanjaa();
+    this.refresh();
+    
+    this.resetForm();
+  }
+
+  resetForm(form?: NgForm) {
+    if (form)
+      form.reset();
+    this.placanjaService.placanja = {
+      _id : "",
+    imeClana: "",
+    januar : "",
+    februar: "",
+    mart: "",
+    april:"",
+    maj: "",
+    jun:"",
+   septembar: "",
+   oktobar: "",
+    novembar: "",
+    decembar : ""
+      
+    }
+  }
+  refresh() {
+    this.placanjaService.readPlacanja().subscribe((res) => {
+      this.placanjaService.neplatioci = res as Placanja[];
+    });
   }
   noviNeplatioc(event:any)
   {
     event.preventDefault();
-    this._placanjaService.setter(new Placanja);
-    this.router.navigate(['/dodajizmeni']);
+    this.placanjaService.setter(new Placanja);
+    this.isShow = !this.isShow;
   }
-  deleteuj(_id:string)
+  deleteuj(_id:string,form:NgForm)
   {
-    this._placanjaService.deletePlacanja(_id).subscribe((res) =>{
+    this.placanjaService.deletePlacanja(_id).subscribe((res) =>{
+   
       
     });
-      
+  
     
   }
-  updateuj(placanja)
+  adduj(placanja:Placanja)
   {
-    this._placanjaService.setter(placanja);
-    this.router.navigate(['/dodajizmeni']);
+    this.placanjaService.placanja=placanja;
+    this.isDisabled=!this.isDisabled;
+    this.isEnabledd=!this.isEnabledd;
+    this.isShow = !this.isShow;
+    
   }
+  updateuj(placanja:Placanja)
+  {
+    this.placanjaService.placanja=placanja;
+    this.isEnabled=!this.isEnabled;
+    this.isDisabledd=!this.isDisabledd;
+    this.isShow = !this.isShow;
+    
+  }
+
+  onSubmit(form:NgForm)
+  {
+      this.placanjaService.createPlacanja(form.value).subscribe((res)=>{
+        this.isShow = !this.isShow;
+     
+      });
+    
+  
+  }
+
+  onSubmit1(form:NgForm)
+  {
+   
+    this.placanjaService.updatePlacanja(form.value).subscribe((res)=>{
+      this.isShow = !this.isShow;
+      
+      
+     });
+ 
+  }
+
+
+
   readPlacanjaa()
   {  
-    this._placanjaService.readPlacanja().subscribe(
+    this.placanjaService.readPlacanja().subscribe(
       data=>{
         console.log(data);
         this.placanje=data['msg'];
@@ -52,5 +120,7 @@ export class TableIzmenaComponent implements OnInit {
       }
     )
   }
+  
+  
 }
 

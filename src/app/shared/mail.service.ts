@@ -5,16 +5,16 @@ import { HttpClient, HttpRequest } from "@angular/common/http";
   providedIn: 'root'
 })
 export class MailService {
-  constructor(private http:HttpClient) { }
+
   poslatMail: Mail=
   {
-    ime:"",
-    mesec:"",
-    napomena:""
+    ime:'',
+    mesec:'',
+    napomena:''
 
-  }
+  };
 
-
+  constructor(private http:HttpClient) { }
 sendEmail(url,data)
 {
   return this.http.post(url,data);

@@ -75,7 +75,7 @@ app.post("/sendemail",(req,res) =>{
    }); 
 });
 
-async function sendMail(user,callback)
+async function sendMail(mail,callback)
 {
     let transporter =nodemailer.createTransport({
 
@@ -89,7 +89,7 @@ async function sendMail(user,callback)
     });
 
     let mailOptions={
-        from:"Web Stranica",
+        from:"cronije@gmail.com",
         to:mail.email,
         subject:"Nova uplata",
         html:
