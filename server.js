@@ -1,105 +1,68 @@
+const http =require ('http');
+const app = require('./backend/app');
 
-const http = require('http');
-const port = process.env.PORT || 3000;
-const express = require ('express');
-const nodemailer=require('nodemailer');
-const bodyparser = require ('body-parser');
-const mongoose = require('mongoose');
-const config= require("./backend/config/db");
-mongoose.connect(config.database);
-const passport =require('passport');
-const placanjeclanoviController = require('./backend/controllers/placanjeclanoviController.js');
-const appRoutes = require('./backend/routes/approutes');
-var cors = require('cors');
-
-const details=require('./details.json');
-
-mongoose.connection.on('radi',()=>{
-    console.log('Radi baza' +config.database)
-});
+const debug =require("debug")('node-angular');
 
 
-var app =express();
 
-//body parser
-
-app.use(bodyparser());
-app.use(bodyparser.urlencoded({extended:true}));
-app.use(bodyparser.json());
-//passport
-app.use(passport.initialize( ));
-app.use(passport.session());
-
-require('./backend/config/passportConfig')(passport);
-
-//cors
-app.use(cors({origin:"*"}));
-
-//routes
-app.get('/users', (req,res) =>{
-    res.json(users)
-});
-
-app.set('port', port);
-const server = http.createServer(app);
-
-
-app.use('/placanjeclanovi', placanjeclanoviController);
-
-app.use((err,req,res,next) =>{
-    if (err.name == 'ValidationError'){
-        var valErrors=[];
-        Object.keys(err.errors).forEach(key =>valErrors.push(err.errors[key].message));
-        res.status(422).send(valErrors);
-    }
-});
-
-app.use('/',appRoutes);
-app.use('/neplatioci',placanjeclanoviController);
-
-let transporter= nodemailer.createTransport({
-    service:'gmail',
-    auth:{
-        ime:process.env.ime,
-        mesec:process.env.mesec,
-        napomena:process.env.napomena
-    }
-
-});
-
-app.post("/sendemail",(req,res) =>{
-   let mail=req.body;
-   sendMail(mail,info=>{
-       console.log(`poslat mail na ${info.messageId}`);
-       res.send(info);
-   }); 
-});
-
-async function sendMail(mail,callback)
+const normalizePort= val =>
 {
-    let transporter =nodemailer.createTransport({
+    var port = parseInt(val,10);
 
-        host:"smtp.gmail.com",
-        port:587,
-        secure:false,
-        auth:{
-            user:details.email,
-            password:details.password
-        }
-    });
 
-    let mailOptions={
-        from:"cronije@gmail.com",
-        to:mail.email,
-        subject:"Nova uplata",
-        html:
-        `
-        <h1>Pozdrav ${user.ime}</h1>
-        
-        `
-    };
-    let  info=await transporter.sendMail(mailOptions);
-    callback(info);
+
+if(isNaN(port))
+{   //named pipe
+    return val;
 }
 
-server.listen(port);
+if(port>=0)
+
+{   //port number
+    return port;
+}
+
+    return false;
+
+};
+
+const onError=error =>
+{
+    if(error.syscall !=="listen")
+    {
+        throw error;
+    }
+
+    const bind=typeof   addr==="string"?"pipe" + addr:"port" +port ;
+    switch(error.code)
+    {
+
+        case "EACCESS":
+            console.error(bind+"requires elevated privilages");
+            process.exit(1);
+            break;
+        case "EADDRINUSE":
+            console.error(bind+" is already in use");
+            process.exit(1);
+            break;
+        default:
+            throw error;
+    }
+};
+
+    const onListening=() =>
+    {
+        const addr=server.address();
+        const bind=typeof  addr==="string"?"pipe" + addr:"port" +port ;
+        debug("Listening to" +bind);
+    };
+
+    const port = normalizePort(process.env.PORT || "3000");
+    app.set("port",port);
+
+    const server =http.createServer(app);
+    server.on("error",onError);
+    server.on("listening",onListening);
+    server.listen(port);
+
+

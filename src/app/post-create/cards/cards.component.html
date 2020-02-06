@@ -1,0 +1,41 @@
+
+<div class="row d-flex justify-content-around mt-5 mb-5">
+            
+    <div class="card col-sm-12 col-md-3 shadow p-3 mx-2 mb-5 bg-white rounded "  *ngFor="let post of posts">
+      <!-- <img src="" class="card-img-top" alt="..."> -->
+      <div class="card-body">
+        <h5 class="card-title">{{post.title}}</h5>
+        <p class="card-text text-muted">{{post.content}}</p>
+        <!-- Button trigger modal -->
+<button type="button" class="btn btn-outline-info mx-2  " data-toggle="modal" data-target="#exampleModalLong">
+ Saznaj Više
+</button>
+<a  [routerLink]="['/izmeniclanak',post.id]" class="btn btn-light"><i class="fas fa-edit mx-2"></i></a>
+<button class="btn btn-light" (click)=onDelete(post.id)><i class="far fa-calendar-times mx-2"></i></button>
+
+ <!-- Modal -->
+ <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+   <div class="modal-dialog" role="document">
+     <div class="modal-content">
+       <div class="modal-header">
+         <h5 class="modal-title" id="exampleModalLongTitle">{{post.title}}</h5>
+         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+           <span aria-hidden="true">&times;</span>
+         </button>
+       </div>
+       <div class="modal-body">
+        {{post.content}}
+       </div>
+       <div class="modal-footer">
+         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+         <button type="button" class="btn btn-primary">Save changes</button>
+        
+       </div>
+     </div>
+   </div>
+ </div>
+    </div>
+  </div>
+  
+</div>
+<div class="row d-flex justify-content-center mt-5 mb-5"><span *ngIf="posts.length<=0">Nema trenutnih novosti</span></div>

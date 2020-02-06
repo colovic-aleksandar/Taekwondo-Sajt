@@ -1,5 +1,8 @@
 const mongoose = require ('mongoose');
 const config =require('../config/db');
+
+
+
 mongoose.connect(config.database);
 
 var placanje = mongoose.Schema({

@@ -67,6 +67,7 @@ export class TableIzmenaComponent implements OnInit {
   
     
   }
+  
   adduj(placanja:Placanja)
   {
     this.placanjaService.placanja=placanja;

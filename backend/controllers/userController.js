@@ -2,7 +2,10 @@ const mongoose = require('mongoose');
 const config =require('../config/db');
 mongoose.connect(config.database);
 var passport = require('passport');
-
+mongoose.set('useNewUrlParser', true);
+mongoose.set('useFindAndModify', false);
+mongoose.set('useCreateIndex', true);
+mongoose.set('useUnifiedTopology', true);
 const User = mongoose.model('noviKorisnik');
 
 module.exports.register=(req,res,next) =>

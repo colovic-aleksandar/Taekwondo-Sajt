@@ -7,10 +7,11 @@ import {HomeComponent } from './home/home.component';
 import {AdminComponent } from './admin/admin.component';
 import { TableIzmenaComponent } from './table-izmena/table-izmena.component';
 import { NoviKorisnikComponent } from './novi-korisnik/novi-korisnik.component';
-import { NoviClanakComponent } from './novi-clanak/novi-clanak.component';
+import { NoviClanakComponent } from './post-create/novi-clanak/novi-clanak.component';
 import {UplatiComponent} from './uplata/table-dugovi/uplati/uplati.component';
 import{DodajKorisnikaComponent} from './dodaj-korisnika/dodaj-korisnika.component';
 import{UpdateKorisnikaComponent} from './update-korisnika/update-korisnika.component'
+import{PostCreateComponent} from './post-create/post-create.component'
 
 
 import {AuthGuard} from './auth/auth.guard';
@@ -23,7 +24,8 @@ const routes: Routes =
 {path:'admin', component: AdminComponent,canActivate:[AuthGuard]},
 {path:'tabelaizmena', component: TableIzmenaComponent,canActivate:[AuthGuard]},
 {path:'novikorisnik', component: NoviKorisnikComponent,canActivate:[AuthGuard]},
-{path:'noviclanak', component: NoviClanakComponent,canActivate:[AuthGuard]},
+{path:'noviclanak', component: PostCreateComponent,canActivate:[AuthGuard]},
+{path:'izmeniclanak/:postId', component: PostCreateComponent,canActivate:[AuthGuard]},
 {path:'uplati', component:UplatiComponent,canActivate:[AuthGuard]},
 {path:'dodajizmeni', component: DodajKorisnikaComponent,canActivate:[AuthGuard]},
 {path:'dodajkorisnika', component: UpdateKorisnikaComponent,canActivate:[AuthGuard]},

@@ -1,0 +1,28 @@
+<div class="slika d-flex justify-content-center"> <img src="../../assets/img/logo1.png" alt=""></div>
+<div class="blank"></div>
+<div class="container d-flex justify-content-center ">
+  <div class="row d-flex justify-content-center">
+    <div class="forma p-3 animated fadeInUp col-9">
+      <form [formGroup]="form"  (submit)="onSavePost()" class="p-2">
+        <label for="naslov">Naslov</label>
+        <input formControlName="title" class="form-control" id="naslov" type="text" placeholder="Naslov">
+
+        <div class="form-group"><br>
+          <label for="exampleFormControlTextarea1">Napiši članak</label>
+          <textarea formControlName="content"  class="form-control" id="exampleFormControlTextarea1" rows="3" ></textarea>
+        </div>
+
+        <!-- <button type="button" class="btn btn-outline-info" (click)="filePicker.click()"
+          (change)="onImagePicked($event)">Izaberi Naslovnu Sliku</button>
+        <input  type="file" #filePicker> -->
+        <div class=""><button type="submit" class="btn btn-info">Posalji</button>
+          <a class="d-flex justify-content-end text-primary text-info form-group " routerLink="/uplata">
+            &nbsp;&nbsp;&nbsp;
+            <i class="fas fa-chevron-left mt-1 mr-2"></i><small class="mt-1 ">Vrati se nazad</small></a>
+          <span class="text-danger ">{{neuspesno}}</span>
+          <span class="text-success ">{{uspesno}}</span>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

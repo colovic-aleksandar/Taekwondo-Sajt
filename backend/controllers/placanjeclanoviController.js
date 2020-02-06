@@ -2,6 +2,7 @@ const express = require ('express');
 var ObjectId=require('mongoose').Types.ObjectId;
 var router = express.Router();
 
+
 var { Clanovi } = require('../models/placanjeclanovi.model');
 
 router.get('/',(req,res) =>{
