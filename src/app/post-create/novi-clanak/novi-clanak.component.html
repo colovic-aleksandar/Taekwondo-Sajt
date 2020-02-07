@@ -11,10 +11,11 @@
           <label for="exampleFormControlTextarea1">Napiši članak</label>
           <textarea formControlName="content"  class="form-control" id="exampleFormControlTextarea1" rows="3" ></textarea>
         </div>
-
-        <!-- <button type="button" class="btn btn-outline-info" (click)="filePicker.click()"
-          (change)="onImagePicked($event)">Izaberi Naslovnu Sliku</button>
-        <input  type="file" #filePicker> -->
+        <div  class="image-preview" *ngIf="imagePreview !== '' && imagePreview && form.get('image').valid">
+          <img [src]="imagePreview" [alt]="form.value.title">
+        </div>
+        <button type="button" class="btn btn-outline-info" (click)="filePicker.click()">Izaberi Naslovnu Sliku</button>
+        <input  type="file" #filePicker (change)="onImagePicked($event)">
         <div class=""><button type="submit" class="btn btn-info">Posalji</button>
           <a class="d-flex justify-content-end text-primary text-info form-group " routerLink="/uplata">
             &nbsp;&nbsp;&nbsp;

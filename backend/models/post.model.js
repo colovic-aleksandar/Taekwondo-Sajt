@@ -12,6 +12,17 @@ var postSchema = mongoose.Schema({
         required:true,
     },
 
+    imagePath: 
+    { 
+        type: String,
+        required:true,
+    },
+    creator:
+    {
+        type:mongoose.Schema.Types.ObjectId,
+        required:true,
+        ref:"User"
+    }
    
 });
 mongoose.pluralize(null);

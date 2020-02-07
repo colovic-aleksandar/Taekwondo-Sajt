@@ -1,3 +1,4 @@
+const path= require('path');
 const passport =require('passport');
 const placanjeclanoviController = require('./controllers/placanjeclanoviController');
 const appRoutes = require('./routes/approutes');
@@ -32,6 +33,9 @@ app.use(passport.session());
 
 require('./config/passportConfig')(passport);
 
+
+
+app.use("/images",express.static(path.join("backend/images")));
 //cors
 
 app.use((req,res,next)=>{

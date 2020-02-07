@@ -3,6 +3,7 @@ import { FormsModule, ReactiveFormsModule, FormGroup, FormControl, Validators } 
 import { PostsService } from 'src/app/shared/posts.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Post } from 'src/app/shared/post.model';
+// import { mimeType } from "./mime-type.validator";
 @Component({
   selector: 'app-novi-clanak',
   templateUrl: './novi-clanak.component.html',
@@ -15,6 +16,7 @@ export class NoviClanakComponent implements OnInit {
   upisanTekst: string;
   post: Post;
   form: FormGroup;
+  imagePreview: string;
   private mode = 'create'
   private postId: string;
   constructor(public postsService: PostsService, public route: ActivatedRoute) { }
@@ -25,23 +27,25 @@ export class NoviClanakComponent implements OnInit {
         validators: [Validators.required, Validators.minLength(3)]
       }),
       content: new FormControl(null, { validators: [Validators.required] }),
-      // image: new FormControl(null, {validators: [Validators.required]})
+      image: new FormControl(null, {validators: [Validators.required]})
     });
     this.route.paramMap.subscribe((paramMap: ParamMap) => {
       if (paramMap.has("postId")) {
         this.mode = "edit";
         this.postId = paramMap.get("postId");
-        
+        // this.isLoading = true;
         this.postsService.getPost(this.postId).subscribe(postData => {
-          
+          // this.isLoading = false;
           this.post = {
             id: postData._id,
             title: postData.title,
-            content: postData.content
+            content: postData.content,
+            imagePath:postData.imagePath
           };
-          this.form.setValue({
+          this.form.patchValue({
             title: this.post.title,
-            content: this.post.content
+            content: this.post.content,
+            imagePath:this.post.imagePath
           });
         });
       } else {
@@ -53,27 +57,37 @@ export class NoviClanakComponent implements OnInit {
 
   onImagePicked(event: Event) {
     const file = (event.target as HTMLInputElement).files[0];
+    this.form.patchValue({image: file});
+    this.form.get('image').updateValueAndValidity();
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.imagePreview = reader.result as string;
+    };
+    reader.readAsDataURL(file);
   }
 
   onSavePost() {
     if (this.form.invalid) {
-      this.neuspesno = "Popunite Sva Polja";
-      this.uspesno = "";
-
+      this.neuspesno="Popunite Sva Polja";
+      this.uspesno="";
       return;
     }
-    if (this.mode === 'create') {
-      this.postsService.addPost(this.form.value.naslov, this.form.value.clanak);
-      this.form.reset();
-
+    // this.isLoading = true;
+    if (this.mode === "create") {
+      this.postsService.addPost(this.form.value.title, this.form.value.content,this.form.value.image);
+    } else {
+      this.postsService.updatePost(
+        this.postId,
+        this.form.value.title,
+        this.form.value.content,
+        this.form.value.image
+      );
+     
     }
-    else {
-      this.postsService.updatePost(this.postId, this.form.value.naslov, this.form.value.clanak)
-    }
-    this.uspesno = "Uspešno Kreiran Članak";
-    this.neuspesno = "";
+    this.uspesno="Uspesno Cuvanje Posta";
+    this.neuspesno="";
+    this.form.reset();
   }
-
 }
 
 
