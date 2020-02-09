@@ -36,7 +36,7 @@ router.post("",multer({storage:storage}).single("image"),(req,res,next)=>
                 title:req.body.title,
                 content:req.body.content,
                 imagePath:url+ '/images/'+ req.file.filename,
-                // creator:
+                // creator:""
             });
         post.save().then(createdPost =>
             {

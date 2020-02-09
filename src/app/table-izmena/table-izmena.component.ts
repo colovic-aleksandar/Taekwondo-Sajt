@@ -62,12 +62,8 @@ export class TableIzmenaComponent implements OnInit {
   {
     this.placanjaService.deletePlacanja(_id).subscribe((res) =>{
    
-      
     });
-  
-    
   }
-  
   adduj(placanja:Placanja)
   {
     this.placanjaService.placanja=placanja;
@@ -84,30 +80,21 @@ export class TableIzmenaComponent implements OnInit {
     this.isShow = !this.isShow;
     
   }
-
   onSubmit(form:NgForm)
-  {
-      this.placanjaService.createPlacanja(form.value).subscribe((res)=>{
-        this.isShow = !this.isShow;
+  {     this.placanjaService.createPlacanja(form.value).subscribe((res)=>{
+        this.isShow = true; this.isDisabled=true; this.isEnabled=true;
+        this.isDisabledd=false; this.isEnabledd=false;
      
       });
-    
-  
   }
-
   onSubmit1(form:NgForm)
   {
-   
     this.placanjaService.updatePlacanja(form.value).subscribe((res)=>{
-      this.isShow = !this.isShow;
-      
-      
+      this.isShow = true; this.isDisabled=true; this.isEnabled=true;
+      this.isDisabledd=false; this.isEnabledd=false;
+
      });
- 
   }
-
-
-
   readPlacanjaa()
   {  
     this.placanjaService.readPlacanja().subscribe(

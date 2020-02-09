@@ -23,10 +23,13 @@
 
               <input type="password" name="password" [(ngModel)]="model.password"  #passwordInput = "ngModel" class="form-control mt-4"  placeholder="Password" minlength="6"  required>
 
-              <div *ngIf="logInForm.submitted && passwordInput.errors?.minlength">
-                <label for="" class="validation-message text-danger">Minimum 6 karaktera </label>
-                <!-- <label *ngIf ="passwordInput.invalid">Unesite validan password</label> -->
-            </div>
+            
+
+            <div *ngIf="logInForm.submitted &&  passwordInput.invalid">
+              <label for="" class="validation-message text-danger">Unesite validan password</label>
+              
+          </div>
+            
                 
               </div>
               <br>

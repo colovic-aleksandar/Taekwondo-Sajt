@@ -9,8 +9,6 @@ import { TableIzmenaComponent } from './table-izmena/table-izmena.component';
 import { NoviKorisnikComponent } from './novi-korisnik/novi-korisnik.component';
 import { NoviClanakComponent } from './post-create/novi-clanak/novi-clanak.component';
 import {UplatiComponent} from './uplata/table-dugovi/uplati/uplati.component';
-import{DodajKorisnikaComponent} from './dodaj-korisnika/dodaj-korisnika.component';
-import{UpdateKorisnikaComponent} from './update-korisnika/update-korisnika.component'
 import{PostCreateComponent} from './post-create/post-create.component'
 
 
@@ -27,8 +25,6 @@ const routes: Routes =
 {path:'noviclanak', component: PostCreateComponent,canActivate:[AuthGuard]},
 {path:'izmeniclanak/:postId', component: PostCreateComponent,canActivate:[AuthGuard]},
 {path:'uplati', component:UplatiComponent,canActivate:[AuthGuard]},
-{path:'dodajizmeni', component: DodajKorisnikaComponent,canActivate:[AuthGuard]},
-{path:'dodajkorisnika', component: UpdateKorisnikaComponent,canActivate:[AuthGuard]},
 
 
 ];
@@ -38,4 +34,4 @@ const routes: Routes =
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const routingComponents = [LoginComponent,UplataComponent,AboutComponent,HomeComponent,AdminComponent,NoviClanakComponent,NoviKorisnikComponent,TableIzmenaComponent,DodajKorisnikaComponent,UpdateKorisnikaComponent];
+export const routingComponents = [LoginComponent,UplataComponent,AboutComponent,HomeComponent,AdminComponent,NoviClanakComponent,NoviKorisnikComponent,TableIzmenaComponent];

@@ -17,12 +17,12 @@ var postSchema = mongoose.Schema({
         type: String,
         required:true,
     },
-    creator:
-    {
-        type:mongoose.Schema.Types.ObjectId,
-        required:true,
-        ref:"User"
-    }
+    // creator:
+    // {
+    //     type:mongoose.Schema.Types.ObjectId,
+    //     required:true,
+    //     ref:"User"
+    // }
    
 });
 mongoose.pluralize(null);
