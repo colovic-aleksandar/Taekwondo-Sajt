@@ -45,7 +45,7 @@ updatePlacanja(placanja:Placanja){
 }
 
 deletePlacanja(_id:string){
-  return this.http.delete(this.baseUri+'/delete',{headers:this.headers});
+  return this.http.delete(this.baseUri+'/api/posts/delete/_id',{headers:this.headers});
 }
 
 setter(placanja:Placanja)

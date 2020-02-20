@@ -1,6 +1,7 @@
 const express=require ("express");
 const multer=require('multer');
 const Post=require('../models/post.model');  
+const Placanja=require('../models/placanjeclanovi.model');
 
 
 const router = express.Router();
@@ -109,6 +110,17 @@ router.get('', (req,res,next)=>
 router.delete("/:id",(req,res,next) =>
 {
     Post.deleteOne({_id:req.params.id})
+    .then(result=>
+        {
+            console.log(result);
+            res.status(200).json({message:"Post obrisan!"});
+        });
+    
+});
+
+router.delete("/delete/:id",(req,res,next) =>
+{
+    Placanja.deleteOne({_id:req.params.id})
     .then(result=>
         {
             console.log(result);

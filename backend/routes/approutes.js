@@ -1,12 +1,11 @@
 var express = require('express');
-var router = express.Router();
-var Placanja = require('../models/placanjeclanovi.model');
+const Placanja=require('../models/placanjeclanovi.model');
 var ctrlUser =require('../controllers/userController');
 var User = require('../models/user.model');
 var passport = require('passport');
 const jwt = require('jsonwebtoken');
 const config = require('../config/db');
-
+var router = express.Router();
 
 router.get('/korisnik',ctrlUser.korisnik);
 router.post('/register', ctrlUser.register);
@@ -107,14 +106,15 @@ router.put('/update',(req,res,next) => {
     })
 });
 
-router.delete('/delete',(req,res,next) =>{
-    Placanja.findOneAndDelete( req.params._id,(err,placanja)=>{
-        if(err)
-            res.status(500).json({errmsg : err,msg:"error"});
-           
-        res.status(200).json({msg : placanja}); 
-        
-    });
+router.delete("/delete/:id",(req,res,next) =>
+{
+    Placanja.deleteOne({_id:req.params.id})
+    .then(result=>
+        {
+            console.log(result);
+            res.status(200).json({message:"Post obrisan!"});
+        });
+    
 });
 
 router.get('/profile', passport.authenticate('jwt', {session:false}), (req, res, next) => {
